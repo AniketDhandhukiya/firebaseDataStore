@@ -1,0 +1,6 @@
+framework module Pods_firebaseDataStore {
+  umbrella header "Pods-firebaseDataStore-umbrella.h"
+
+  export *
+  module * { export * }
+}
