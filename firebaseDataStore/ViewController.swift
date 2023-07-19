@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 import FirebaseDatabase
 import FirebaseFirestore
 
@@ -27,12 +29,27 @@ class ViewController: UIViewController {
 
     @IBAction func saveAction(_ sender: Any) {
         //ref.child("Students").childByAutoId().setValue(["id": t1.text!,"name": t2.text!,"email": t3.text!])
-        fireBase()
+        newUser()
     }
     
     func fireBase() {
-        //refa.collection("iOS").document(t1.text!).setData(["name": t2.text])
-        refa.collection("iOS").document(t2.text!).updateData([t3.text])
+        
     }
+    
+    func newUser(){
+//        Auth.auth().createUser(withEmail: t1.text!, password: t2.text!) { authDataResult, erro in
+//            print(authDataResult, erro?.localizedDescription)
+//        }
+//
+//        refa.collection("iOS").addDocument(data: ["email": t1
+//            .text,"password": t2.text])
+//
+        
+        Auth.auth().signIn(withEmail: t1.text!, password: t2.text!) { authDataResult, error in
+            print(authDataResult, error?.localizedDescription)
+        }
+    }
+    
+    
 }
 
